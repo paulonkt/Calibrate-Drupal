@@ -1,3 +1,6 @@
+
+DB Export is under calibrate/database
+
 /***************************************/
 /*  Create .env file with the content  */
 /***************************************/
@@ -10,6 +13,7 @@ MYSQL_ROOT_PASSWORD=root_password
 DRUPAL_USER=drupal_admin
 DRUPAL_PASSWORD=drupal_password
 /***************************************/
+
 
 /***************************************/
 - Build the containers: docker compose up -d --build
