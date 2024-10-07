@@ -1,0 +1,8 @@
+name: 'Hello World'
+type: module
+description: 'A simple Hello World custom module.'
+package: Custom
+core_version_requirement: ^10
+version: 1.0
+dependencies:
+  - drupal:system

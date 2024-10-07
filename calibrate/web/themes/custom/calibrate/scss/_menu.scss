@@ -1,0 +1,38 @@
+.menu-row {
+	display: flex;
+	align-items: center;
+	flex: 1;
+	padding: 2rem;
+
+	.logo {
+		flex: 1;
+
+		img {
+			max-width: $logo-width;
+		}
+	}
+
+	.menu {
+		flex: 1;
+
+		ul {
+			display: flex;
+			justify-content: flex-end;
+			list-style: none;
+			padding: 0;
+			margin: 0;
+
+			li {
+				margin-left: $menu-item-left-space;
+				&:first-child {
+					margin-left: 0;
+				}
+				a {
+					font-size: 2rem;
+					text-decoration: none;
+					color: $link-dark-color;
+				}
+			}
+		}
+	}
+}

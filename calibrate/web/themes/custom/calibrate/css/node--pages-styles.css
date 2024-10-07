@@ -1,0 +1,15 @@
+.content-wrapper {
+  display: flex; }
+  .content-wrapper a {
+    color: #2c3e50;
+    text-decoration: none; }
+  .content-wrapper .image {
+    flex: 1;
+    margin-right: 20px; }
+  .content-wrapper .right {
+    flex: 2; }
+  .content-wrapper .text {
+    display: inline; }
+    .content-wrapper .text p:first-of-type,
+    .content-wrapper .text div:first-of-type {
+      margin-top: 0; }

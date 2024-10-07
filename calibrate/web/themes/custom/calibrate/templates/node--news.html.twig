@@ -1,0 +1,15 @@
+{# node--news.html.twig #}
+<article class="node-news">
+  <div class="content-wrapper">
+    <div class="image">
+      {% if content.field_news_image %}
+        {{ content.field_news_image }}
+      {% endif %}
+    </div>
+    <div class="text">
+      {% if content.field_news_text %}
+        {{ content.field_news_text }}
+      {% endif %}
+    </div>
+  </div>
+</article>

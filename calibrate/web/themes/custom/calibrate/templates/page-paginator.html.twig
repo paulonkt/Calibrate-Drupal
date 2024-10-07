@@ -1,0 +1,21 @@
+{# page-paginator.html.twig #}
+<div class="pagination">
+  {% if pager.current_page > 0 %}
+    <a href="{{ pager.first_page.url }}" class="pager-first"><<</a>
+    <a href="{{ pager.prev_page.url }}" class="pager-prev"><</a>
+  {% endif %}
+
+  {# Numbered Pages #}
+  {% for page in pager.pages %}
+    {% if page.is_current %}
+      <span class="pager-current">{{ page.number }}</span>
+    {% else %}
+      <a href="{{ page.url }}" class="pager-number">{{ page.number }}</a>
+    {% endif %}
+  {% endfor %}
+
+  {% if pager.current_page < pager.last_page %}
+    <a href="{{ pager.next_page.url }}" class="pager-next">></a>
+    <a href="{{ pager.last_page.url }}" class="pager-last">>></a>
+  {% endif %}
+</div>

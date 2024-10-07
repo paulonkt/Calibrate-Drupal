@@ -1,0 +1,6 @@
+.field-type-country:before {
+	content: url('../img/flag.png');
+	margin-right: 5px;
+	width: 100px;
+	vertical-align: middle;
+}

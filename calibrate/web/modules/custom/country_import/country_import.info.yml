@@ -1,0 +1,7 @@
+name: 'Country Import'
+type: module
+description: 'Imports countries and provides a country field type.'
+core_version_requirement: ^10
+package: Calibrate
+dependencies:
+  - drupal:field

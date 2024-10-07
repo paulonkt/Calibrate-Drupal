@@ -1,0 +1,6 @@
+{# page-back.html.twig #}
+{% if not is_front and (node.bundle == 'articles' or node.bundle == 'news' or node.bundle == 'offices') %}
+	<div class="row-back">
+    <a href="/{{ node.bundle }}" class="btn-back">{{ '< back to overview'|t }}</a>
+	</div>
+{% endif %}

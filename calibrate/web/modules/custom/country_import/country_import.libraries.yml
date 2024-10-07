@@ -1,0 +1,14 @@
+country_import_admin:
+  css:
+    theme:
+      css/country_import_admin.css: {}
+  dependencies:
+    - core/drupal.dialog
+
+country_filter:
+  version: 1.x
+  js:
+    js/country_filter.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal

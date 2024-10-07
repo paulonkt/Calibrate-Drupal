@@ -1,0 +1,42 @@
+@import './_details';
+@import './_footer';
+@import './header';
+@import './_home';
+@import './_menu';
+@import './_page';
+@import './_paginator';
+@import './_variables';
+
+body {
+	margin: 0;
+}
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 20px;
+
+	.page-header {
+		padding: 140px 0;
+		text-align: center;
+		position: relative;
+	}
+	.page-header .overlay {
+		background-color: rgba(0, 0, 0, 0.5);
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	
+	.page-title {
+		color: #fff;
+		font-size: 36px;
+		font-weight: bold;
+		z-index: 1;
+	}
+}

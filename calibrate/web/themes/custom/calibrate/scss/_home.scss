@@ -1,0 +1,45 @@
+.home-blocks {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: 2rem;
+	
+	h2 {
+		margin-bottom: 3rem;
+	}
+
+	.block-latest-news,
+	.block-latest-articles {
+		border: 1px solid $primary-color;
+		padding: 0 2rem;
+	}
+
+	//.views-row:not(:last-child) {
+	.views-row{
+		border-bottom: 1px solid $primary-color;
+		margin-bottom: 1rem;
+
+		.views-field-title {
+			margin: 0;
+
+			.field-content {
+				font-size: 1.2rem;
+			}
+		}
+	}
+
+	.views-row:last-child {
+		border-bottom: none;
+	}
+	
+	.more-link {
+		display: flex;
+		justify-content: flex-end;
+	
+		a {
+			text-decoration: none;
+			color: $primary-color;
+			margin-bottom: 1rem;
+		}
+	}
+}

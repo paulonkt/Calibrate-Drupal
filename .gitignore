@@ -1,0 +1,34 @@
+# Ignore Drupal core files
+/core/*
+!/core/.htaccess
+!/core/vendor/
+
+# Ignore config files
+/sites/*/settings.php
+/sites/*/services.yml
+/sites/*/files/
+
+# Ignore logs and temporary files
+*.log
+tmp/
+cache/
+files/temporary/
+files/php/
+
+# Ignore vendor files (if using Composer)
+vendor/
+node_modules/
+npm-debug.log
+package-lock.json
+
+# Ignore IDE files
+.idea/
+.vscode/
+.DS_Store
+
+# Ignore backup files
+*~
+*.bak
+*.orig
+
+.env

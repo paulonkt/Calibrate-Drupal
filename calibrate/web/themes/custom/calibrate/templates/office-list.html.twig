@@ -1,0 +1,13 @@
+{# templates/office-list.html.twig #}
+<div class="country-filter">
+  {{ country_filter }}
+</div>
+
+<div id="office-list" class="office-list">
+  {% for office in offices %}
+    <div class="office-item">
+      <h2>{{ office.title }}</h2>
+      <p>{{ office.field_office_country.value }}</p>
+    </div>
+  {% endfor %}
+</div>

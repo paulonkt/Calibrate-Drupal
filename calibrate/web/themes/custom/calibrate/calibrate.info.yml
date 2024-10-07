@@ -1,0 +1,15 @@
+name: 'Calibrate Theme'
+type: theme
+description: 'A custom Drupal 10 theme for Calibrate challenge'
+core_version_requirement: ^10
+package: Custom
+base theme: false
+libraries:
+  - calibrate/global-styling
+regions:
+  header: 'Header'
+  logo: 'Logo'
+  menu: 'Menu'
+  title: 'Title'
+  content: 'Content'
+  footer: 'Footer'

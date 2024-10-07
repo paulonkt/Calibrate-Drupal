@@ -1,0 +1,42 @@
+{# node--offices.html.twig #}
+<article class="node-offices">
+  <div class="content-wrapper">
+    <div class="image">
+      {% if content.field_office_image %}
+        {{ content.field_office_image }}
+      {% endif %}
+    </div>
+		<div class="right">
+      <div class="text">
+        {% if content.field_office_address %}
+          {{ content.field__officeaddress }}
+        {% endif %}
+      </div>
+      <div class="text">
+        {% if content.field_office_contact %}
+          {{ content.field_office_contact }}
+        {% endif %}
+      </div>
+      <div class="text">
+        {% if content.field_office_email %}
+          {{ content.field_office_email }}
+        {% endif %}
+      </div>
+      <div class="text">
+        {% if content.field_office_phone %}
+          {{ content.field_office_phone }}
+        {% endif %}
+      </div>
+      <div class="text">
+        {% if content.field_office_fax %}
+          {{ content.field_office_fax }}
+        {% endif %}
+      </div>
+      <div class="text">
+        {% if content.field_office_country %}
+          {{ content.field_office_country }}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</article>

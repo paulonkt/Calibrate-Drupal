@@ -1,0 +1,20 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0; }
+  .pagination a,
+  .pagination .pager-current {
+    padding: 10px 15px;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    color: #333;
+    text-decoration: none; }
+    .pagination a.pager-current,
+    .pagination .pager-current.pager-current {
+      background-color: #3498db;
+      color: white; }
+    .pagination a:hover,
+    .pagination .pager-current:hover {
+      background-color: #3498db;
+      color: white; }

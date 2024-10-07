@@ -1,0 +1,27 @@
+{# node--articles.html.twig #}
+<article class="node-articles">
+  <div class="content-wrapper">
+    <div class="image">
+      {% if content.field_article_image %}
+        {{ content.field_article_image }}
+      {% endif %}
+    </div>
+    <div class="right">
+		  <div class="text">
+        {% if content.field_article_text %}
+          {{ content.field_article_text }}
+        {% endif %}
+      </div>
+      <div class="text">
+        {% if content.field_article_tags %}
+          {{ content.field_article_tags }}
+        {% endif %}
+      </div>
+      <div class="text">
+        {% if content.field_article_country %}
+          {{ content.field_article_country }}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</article>

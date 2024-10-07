@@ -1,0 +1,31 @@
+{% include '@calibrate/header.html.twig' %}
+
+<div class="container">
+  {% include '@calibrate/page-menu.html.twig' %}
+
+  {% include '@calibrate/page-header.html.twig' %}
+
+  <main>
+    <div class="content">
+      <div class="facets">
+        {# Render the facet block #}
+        {{ drupal_block('news_text') }}
+      </div>
+
+      {% if is_front %}
+        {% include '@calibrate/page-home.html.twig' %}
+      {% else %}
+        {% include '@calibrate/page-back.html.twig' %}
+
+        {% include '@calibrate/page-title.html.twig' %}
+
+        {{ page.content }}
+
+        {{ pager }}
+      
+      {% endif %}
+    </div>
+  </main>
+</div>
+
+{% include '@calibrate/page-footer.html.twig' %}

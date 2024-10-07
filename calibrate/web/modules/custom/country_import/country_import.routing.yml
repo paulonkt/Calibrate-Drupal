@@ -1,0 +1,7 @@
+country_import.office_list:
+  path: '/office-list'
+  defaults:
+    _controller: '\Drupal\country_import\Controller\OfficeController::officeList'
+    _title: 'Office List'
+  requirements:
+    _permission: 'access content'

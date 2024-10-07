@@ -1,0 +1,33 @@
+@import './_variables';
+
+.row-back {
+	margin-bottom: 2rem;
+
+	.btn-back {
+		color: $link-dark-color;
+		text-decoration: none;
+	}
+}
+
+.content-wrapper {
+	display: flex;
+
+	a {
+		color: $link-dark-color;
+		text-decoration: none;
+	}
+	.image {
+		flex: 1;
+		margin-right: 20px;
+	}
+	.right {
+		flex: 2;
+	}
+	.text {
+		display: inline;
+		p:first-of-type,
+		div:first-of-type {
+			margin-top: 0;
+		}
+	}
+}

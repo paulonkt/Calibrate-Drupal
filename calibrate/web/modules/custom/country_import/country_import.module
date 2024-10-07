@@ -1,0 +1,74 @@
+<?php
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_field_widget_info_alter().
+ */
+function country_import_field_widget_info_alter(&$info) {
+  $info['country_import/country_import_admin'] = [
+    '#attached' => [
+      'library' => ['country_import/country_import_admin'],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function country_filter_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Check if we're on the office list page.
+  if ($form_id === 'country_filter_form') {
+    // Fetch countries used in office content.
+    $countries = \Drupal::entityQuery('node')
+      ->condition('type', 'office')
+      ->distinct()
+      ->addField('field_office_country')
+      ->execute();
+
+    // Create an array of country IDs and names.
+    $country_options = [];
+    if (!empty($countries)) {
+      $country_entities = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadMultiple($countries);
+      foreach ($country_entities as $country) {
+        $country_options[$country->id()] = $country->getName();
+      }
+    }
+
+    // Add the select field.
+    $form['country_filter'] = [
+      '#type' => 'select',
+      '#title' => t('Select Country'),
+      '#options' => $country_options,
+      '#empty_option' => t('All countries'),
+      '#ajax' => [
+        'callback' => '::countryFilterCallback',
+        'wrapper' => 'office-list', // Change this to your office list container ID.
+      ],
+    ];
+
+    // Add submit button.
+    $form['submit'] = [
+      '#type' => 'submit',
+      '#value' => t('Filter'),
+    ];
+  }
+}
+
+/**
+ * AJAX callback for country filter.
+ */
+function country_filter_countryFilterCallback(array &$form, FormStateInterface $form_state) {
+  return $form['#ajax']['wrapper']; // Change this to your office list container ID.
+}
+
+/**
+ * Implements hook_form_submit().
+ */
+function country_filter_form_submit($form, FormStateInterface $form_state) {
+  // Get the selected country from the form.
+  $selected_country = $form_state->getValue('country_filter');
+
+  // Redirect to the same page with the selected country as a query parameter.
+  $url = \Drupal\Core\Url::fromRoute('<current>', [], ['query' => ['country' => $selected_country]]);
+  $form_state->setRedirectUrl($url);
+}

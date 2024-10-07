@@ -1,0 +1,78 @@
+<?php
+use Drupal\Core\Database\Database;
+
+define('COUNTRY_IMPORT_TABLE_NAME', 'countries');
+
+/**
+ * Implements hook_schema().
+ */
+function country_import_schema() {
+  $schema[COUNTRY_IMPORT_TABLE_NAME] = [
+    'description' => 'Table to store country names.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+      ],
+      'name' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ],
+    ],
+    'primary key' => ['id'],
+  ];
+
+  return $schema;
+}
+
+/**
+ * Implements hook_install().
+ */
+function country_import_install() {
+  $connection = Database::getConnection();
+
+  if ($connection->schema()->tableExists(COUNTRY_IMPORT_TABLE_NAME)) {
+    $connection->schema()->dropTable(COUNTRY_IMPORT_TABLE_NAME);
+  }
+
+  $connection->schema()->createTable(COUNTRY_IMPORT_TABLE_NAME, country_import_schema()[COUNTRY_IMPORT_TABLE_NAME]);
+
+  country_import_data();
+}
+
+/**
+ * Fetch and import country names from the external service.
+ */
+function country_import_data() {
+  $json = file_get_contents('http://country.io/names.json');
+  if ($json === FALSE) {
+    \Drupal::messenger()->addError(t('Could not fetch the country list.'));
+    return;
+  }
+
+  $countries = json_decode($json, TRUE);
+  if ($countries === NULL) {
+    \Drupal::messenger()->addError(t('Invalid JSON data.'));
+    return;
+  }
+
+  $connection = Database::getConnection();
+  foreach ($countries as $country_code => $country_name) {
+    $connection->insert(COUNTRY_IMPORT_TABLE_NAME)
+      ->fields(['name' => $country_name])
+      ->execute();
+  }
+
+  \Drupal::messenger()->addStatus(t('Country list imported successfully.'));
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function country_import_uninstall() {
+  $connection = \Drupal::database();
+  if ($connection->schema()->tableExists(COUNTRY_IMPORT_TABLE_NAME)) {
+    $connection->schema()->dropTable(COUNTRY_IMPORT_TABLE_NAME);
+  }
+}

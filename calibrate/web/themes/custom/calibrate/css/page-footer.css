@@ -1,0 +1,26 @@
+footer {
+  background-color: #2c3e50;
+  padding: 4rem;
+  color: white; }
+  footer .footer-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem; }
+    footer .footer-logo .logo img {
+      max-width: 8rem; }
+  footer .footer-menu ul {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none; }
+    footer .footer-menu ul li {
+      margin-left: 3rem; }
+      footer .footer-menu ul li:first-child {
+        margin-left: 0; }
+      footer .footer-menu ul li a {
+        font-size: 1rem;
+        text-decoration: none;
+        color: #ecf0f1;
+        font-weight: bold; }

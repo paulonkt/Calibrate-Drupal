@@ -1,0 +1,44 @@
+@import './_variables';
+
+footer {
+  background-color: $footer-bg-color;
+  padding: 4rem;
+  color: white;
+
+  .footer-logo {
+		display: flex;
+    justify-content: center;
+		align-items: center;
+    margin-bottom: 2rem;
+
+		.logo {
+    	img {
+      	max-width: $logo-width;
+				filter: brightness(0) invert(1);
+    	}
+		}
+  }
+
+  .footer-menu {
+		ul {
+			padding: 0;
+      display: flex;
+      justify-content: center;
+			align-items: center;
+      list-style: none;
+
+      li {
+        margin-left: $menu-item-left-space;
+				&:first-child {
+					margin-left: 0;
+				}
+        a {
+					font-size: 1rem;
+          text-decoration: none;
+          color: $link-light-color;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
