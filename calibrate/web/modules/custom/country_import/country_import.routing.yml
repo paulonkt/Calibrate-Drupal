@@ -1,7 +1,7 @@
 country_import.office_list:
-  path: '/office-list'
+  path: '/offices'
   defaults:
     _controller: '\Drupal\country_import\Controller\OfficeController::officeList'
-    _title: 'Office List'
+    _title: 'Offices'
   requirements:
     _permission: 'access content'

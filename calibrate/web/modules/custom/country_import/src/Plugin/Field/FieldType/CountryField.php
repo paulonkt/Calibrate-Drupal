@@ -25,32 +25,14 @@ class CountryField extends FieldItemBase {
 	public static function schema(FieldStorageDefinitionInterface $field_storage_definition) {
 		return [
 			'columns' => [
-				'entity_id' => [
-					'type' => 'int',
-					'not null' => TRUE,
-					'description' => 'The entity ID.',
-				],
-				'langcode' => [
-					'type' => 'varchar',
-					'length' => 32,
-					'not null' => TRUE,
-					'description' => 'The language code.',
-				],
-				'delta' => [
-					'type' => 'int',
-					'not null' => TRUE,
-					'description' => 'The delta for multiple values.',
-				],
 				"target_id" => [
 					'type' => 'int',
 					'not null' => FALSE,
 					'description' => 'Country ID.',
 				],
 			],
-			'primary key' => ['entity_id', 'langcode', 'delta'],
 			'indexes' => [
 				"target_id" => ["target_id"],
-				"entity_id" => ["entity_id"],
 			],
 		];
 	}

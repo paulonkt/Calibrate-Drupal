@@ -1,0 +1,29 @@
+.pager {
+	display: flex;
+	justify-content: center;
+	margin: 20px 0;
+
+	ul {
+		display: flex;
+		list-style: none;
+	}
+
+	.pager__item {
+		margin: 0 10px;
+	}
+	
+	.pager__item a {
+		text-decoration: none;
+		color: gray;
+	}
+	
+	.pager__item.is-active a {
+		font-weight: bold;
+		color: $primary-color;
+	}
+	
+	.pager__item--next a,
+	.pager__item--last a {
+		font-weight: bold;
+	}
+}

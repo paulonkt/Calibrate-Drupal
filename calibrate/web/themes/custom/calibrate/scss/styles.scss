@@ -1,42 +1,46 @@
+@import './_variables';
+@import './_fonts';
+@import './article-facet';
 @import './_details';
+@import './_facets';
 @import './_footer';
 @import './header';
 @import './_home';
+@import './language-switcher';
+@import './_news-facet';
+@import './_office-facet';
 @import './_menu';
 @import './_page';
-@import './_paginator';
-@import './_variables';
+@import './_pager';
 
 body {
 	margin: 0;
+	font-family: 'Montserrat', sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+	font-weight: 300;
 }
 
 .container {
 	max-width: 1200px;
 	margin: 0 auto;
-	padding: 0 20px;
+	padding: 0 4rem;
+}
 
-	.page-header {
-		padding: 140px 0;
-		text-align: center;
-		position: relative;
-	}
-	.page-header .overlay {
-		background-color: rgba(0, 0, 0, 0.5);
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
+.node__title,
+.views-field__title {
+  font-size: 1rem;
+  font-weight: bold;
+  color: $primary-color;
+  margin-bottom: 1rem;
+}
+
+.created-by {
+	text-align: right;
+	padding-right: 2rem;
 	
-	.page-title {
-		color: #fff;
-		font-size: 36px;
-		font-weight: bold;
-		z-index: 1;
+	p {
+		font-size: .8rem;
 	}
 }

@@ -12,3 +12,5 @@ country_filter:
   dependencies:
     - core/jquery
     - core/drupal
+    - core/drupalSettings
+    - core/jquery.once

@@ -5,7 +5,7 @@
 	gap: 2rem;
 	
 	h2 {
-		margin-bottom: 3rem;
+		margin: 2rem 0;
 	}
 
 	.block-latest-news,
@@ -14,9 +14,9 @@
 		padding: 0 2rem;
 	}
 
-	//.views-row:not(:last-child) {
 	.views-row{
-		border-bottom: 1px solid $primary-color;
+		border-bottom: .6px solid $primary-color;
+		border-color: gray;
 		margin-bottom: 1rem;
 
 		.views-field-title {
@@ -26,10 +26,10 @@
 				font-size: 1.2rem;
 			}
 		}
-	}
 
-	.views-row:last-child {
-		border-bottom: none;
+		&:last-of-type {
+			border-bottom: none;
+		}
 	}
 	
 	.more-link {
@@ -41,5 +41,16 @@
 			color: $primary-color;
 			margin-bottom: 1rem;
 		}
+	}
+}
+
+@media (max-width: 768px) {
+	.home-blocks {
+		gap: 1rem;
+		flex-direction: column;
+	}
+
+	.views-row {
+		margin-bottom: 1rem;
 	}
 }

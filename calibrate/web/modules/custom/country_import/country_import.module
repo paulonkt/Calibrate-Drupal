@@ -42,7 +42,7 @@ function country_filter_form_alter(&$form, FormStateInterface $form_state, $form
       '#empty_option' => t('All countries'),
       '#ajax' => [
         'callback' => '::countryFilterCallback',
-        'wrapper' => 'office-list', // Change this to your office list container ID.
+        'wrapper' => 'office-list',
       ],
     ];
 
@@ -58,7 +58,7 @@ function country_filter_form_alter(&$form, FormStateInterface $form_state, $form
  * AJAX callback for country filter.
  */
 function country_filter_countryFilterCallback(array &$form, FormStateInterface $form_state) {
-  return $form['#ajax']['wrapper']; // Change this to your office list container ID.
+  return $form['#ajax']['wrapper'];
 }
 
 /**
@@ -71,4 +71,14 @@ function country_filter_form_submit($form, FormStateInterface $form_state) {
   // Redirect to the same page with the selected country as a query parameter.
   $url = \Drupal\Core\Url::fromRoute('<current>', [], ['query' => ['country' => $selected_country]]);
   $form_state->setRedirectUrl($url);
+}
+
+function calibrate_preprocess_node(&$variables) {
+	if ($variables['node']->getType() == 'office') {
+		$node = $variables['node'];
+		if ($node->hasField('field_office_country')) {
+			$country_id = $node->get('field_office_country')->target_id;
+			$variables['country_id'] = $country_id;
+		}
+	}
 }

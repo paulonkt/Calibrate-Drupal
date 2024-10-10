@@ -1,31 +1,31 @@
-{% include '@calibrate/header.html.twig' %}
+<header class="site-header">
+  {{ page.header }}
+</header>
 
-<div class="container">
-  {% include '@calibrate/page-menu.html.twig' %}
+<main>
+  <div class="container">
+    {% include '@calibrate/page-menu.html.twig' %}
 
-  {% include '@calibrate/page-header.html.twig' %}
+    {% include '@calibrate/page-header.html.twig' %}
 
-  <main>
     <div class="content">
-      <div class="facets">
-        {# Render the facet block #}
-        {{ drupal_block('news_text') }}
-      </div>
-
       {% if is_front %}
         {% include '@calibrate/page-home.html.twig' %}
       {% else %}
         {% include '@calibrate/page-back.html.twig' %}
 
-        {% include '@calibrate/page-title.html.twig' %}
+        {% include '@calibrate/page-news-search.html.twig' %}
 
         {{ page.content }}
-
-        {{ pager }}
-      
       {% endif %}
     </div>
-  </main>
-</div>
+  </div>
+</main>
 
-{% include '@calibrate/page-footer.html.twig' %}
+<footer>
+  {% include '@calibrate/footer.html.twig' %}
+</footer>
+
+<div class="created-by">
+  <p>{{ 'Site created by Paulo'|trans }}</p>
+</div>

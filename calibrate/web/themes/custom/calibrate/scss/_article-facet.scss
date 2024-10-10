@@ -1,0 +1,32 @@
+#block-calibrate-articletagsfacet {
+	width: 50%;
+	float: left;
+	box-sizing: border-box;
+}
+
+.facets-widget-links {
+	ul {
+		display: flex;
+		justify-content: flex-end;
+		list-style: none;
+
+		li {
+			margin-right: 10px;
+			margin-bottom: 10px;
+			padding: 10px 15px;
+			border: 1px solid $primary-color;
+			cursor: pointer;
+
+			a {
+				display: inline-block;
+				margin: 5px;
+				color: $primary-color;
+				text-decoration: none;
+			}
+		}
+
+		.facet-item:hover {
+			background-color: lightgray;
+		}
+	}
+}

@@ -1,0 +1,26 @@
+.language-switcher-language-url {
+	position: absolute;
+	top: 0;
+	right: 0;
+	background-color: white;
+	color: $primary-color;
+	padding: 1rem 2rem;
+	
+	ul {
+		display: flex;
+		list-style: none;
+		text-align: end;
+		margin: 0;
+		padding: 0;
+		
+		li {
+			&:not(:first-child) {
+				margin-left: 1rem;
+			}
+			a {
+				color: $primary-color;
+				text-decoration: none;
+			}
+		}
+	}
+}

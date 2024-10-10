@@ -2,33 +2,30 @@
 namespace Drupal\country_import\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\node\Entity\Node;
+use Symfony\Component\HttpFoundation\Request;
+use Drupal\views\Views;
 
 class OfficeController extends ControllerBase {
-	public function officeList() {
+
+	public function officeList(Request $request) {
 		$build = [];
 
-		$country_filter = \Drupal::request()->query->get('country');
-
-		$query = \Drupal::entityQuery('node')
-			->condition('type', 'office')
-			->accessCheck(TRUE);
-
-		if ($country_filter) {
-			$query->condition('field_office_country', $country_filter);
-		}
-
-		$office_ids = $query->execute();
-		$offices = Node::loadMultiple($office_ids);
-
-		foreach ($offices as $office) {
-			$build['offices'][] = [
-				'#theme' => 'office_item',
-				'#office' => $office,
-			];
-		}
+		$country_filter = $request->query->get('country');
 
 		$build['country_filter'] = \Drupal::formBuilder()->getForm('Drupal\country_import\Form\CountryFilterForm');
+
+		$view = Views::getView('office_search_dropdown');
+		if ($view) {
+			$view->setDisplay('default');
+
+			if ($country_filter) {
+				$view->setArguments([$country_filter]);
+			}
+
+			$view->execute();
+
+			$build['offices_list'] = $view->render();
+		}
 
 		return $build;
 	}

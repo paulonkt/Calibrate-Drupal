@@ -36,7 +36,7 @@ class CountrySelectWidget extends WidgetBase {
 		$element['target_id'] = [
 			'#type' => 'select',
 			'#options' => $options,
-			'#default_value' => NULL,
+			'#default_value' => isset($items[$delta]->target_id) ? $items[$delta]->target_id : NULL,
 			'#empty_option' => $this->t('Select a country'),
 			'#title' => $this->t('Country'),
 		];

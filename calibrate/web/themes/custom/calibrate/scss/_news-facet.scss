@@ -1,0 +1,21 @@
+.views-exposed-form {
+	width: 50%;
+	float: left;
+	box-sizing: border-box;
+	
+	display: flex;
+	justify-content: flex-end;
+	gap: 2;
+
+	#edit-news-search-field {
+		margin-right: 1rem;
+		padding: .6rem 1rem;
+	}
+
+	#edit-submit-news-search-api {
+		background-color: white;
+		padding: .6rem 1rem;
+		color: $primary-color;
+		border: 1px solid $primary-color;
+	}
+}

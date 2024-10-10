@@ -1,10 +1,12 @@
-(function ($, Drupal) {
+(function ($, Drupal, once) {
 	'use strict';
 	Drupal.behaviors.countryFilter = {
 		attach: function (context, settings) {
-			$('#edit-country', context).once('countryFilter').change(function () {
-				$(this).closest('form').submit();
+			once('countryFilter', '#edit-country', context).forEach(function (element) {
+				$(element).change(function () {
+					$(this).closest('form').submit();
+				});
 			});
 		}
 	};
-})(jQuery, Drupal);
+})(jQuery, Drupal, once);

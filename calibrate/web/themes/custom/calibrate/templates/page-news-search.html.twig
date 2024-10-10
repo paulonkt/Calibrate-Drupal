@@ -1,0 +1,8 @@
+{# page-news-search.html.twig #}
+{% set current_path = path('<current>') %}
+{% if current_path == '/news' %}
+  {# Show facet block only on front page of News content type #}
+  <div class="news-facet-block">
+    {#{ drupal_block('facet_block:search') }#}
+  </div>
+{% endif %}

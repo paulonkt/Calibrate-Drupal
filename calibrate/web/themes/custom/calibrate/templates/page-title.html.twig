@@ -1,7 +1,4 @@
 {# page-title.html.twig #}
-{% if node is defined and (node.bundle == 'articles' or node.bundle == 'news') %}
-  <h2 class="title">{{ node.label }}</h2>
-{% endif %}
-{% if view is defined and (view.name == 'articles' or view.name == 'news') %}
-  <h2 class="title">{{ view.getTitle() }}</h2>
+{% if not node %}
+  <h1>{{ title }}</h1>
 {% endif %}
