@@ -89,13 +89,13 @@ class CountryFilterForm extends FormBase {
 			if (!empty($country_id)) {
 				$view->setArguments([$country_id]);
 			} else {
-				$view->setArguments([]);
+				$view->setArguments(['all']);
 			}
 
 			return $view->render();
-    }
+		}
 
-    return $this->t('No offices available for this country.');
+		return $this->t('No offices available for this country.');
 	}
 
 	/**
