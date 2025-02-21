@@ -16,7 +16,7 @@ services:
       DRUPAL_DATABASE: ${MYSQL_DATABASE}
       DRUPAL_DATABASE_USERNAME: ${MYSQL_USER}
       DRUPAL_DATABASE_PASSWORD: ${MYSQL_PASSWORD}
-    restart: always
+    restart: "no"
 
   mysql:
     container_name: mysql
@@ -30,13 +30,12 @@ services:
       - "3306:3306"
     volumes:
       - db_data:/var/lib/mysql
-    restart: always
+    restart: no
 
   phpmyadmin:
     container_name: phpmyadmin
     image: phpmyadmin/phpmyadmin
     platform: linux/amd64
-    restart: always
     ports:
       - "8081:80"
     environment:
@@ -45,6 +44,7 @@ services:
       PMA_PASSWORD: ${MYSQL_PASSWORD}
     depends_on:
       - mysql
+    restart: "no"
 
 volumes:
   db_data:
